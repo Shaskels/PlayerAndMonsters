@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">PlayerAndMonsters</string>
+    <string name="creature_attack">Attack: </string>
+    <string name="creature_defense">Defense: </string>
+    <string name="creature_hp">HP </string>
+    <string name="miss_message">Miss!</string>
+    <string name="monster_attacks_message">Monster attacks!</string>
+    <string name="new_monster_message">New Monster!</string>
+    <string name="attack_monster_button">Attack Monster</string>
+    <string name="heal_up_button">Heal up</string>
+    <string name="monster_killed_message">Monster killed!</string>
+    <string name="killed_monsters_count">Killed: </string>
+    <string name="the_game_is_over">The game is over :(</string>
+    <string name="restart_game">Restart game</string>
+    <string name="you_killed_monsters_count">You killed %1$d monsters</string>
 </resources>

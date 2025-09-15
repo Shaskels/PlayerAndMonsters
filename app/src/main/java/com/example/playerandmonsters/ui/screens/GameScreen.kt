@@ -27,6 +27,7 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.playerandmonsters.R
 import com.example.playerandmonsters.domain.Constants
@@ -66,7 +67,7 @@ fun GameOverScreen(killedMonstersCount: Int, gameViewModel: GameViewModel) {
         Spacer(modifier = Modifier.weight(1f))
 
         Text(
-            "The game is over :(",
+            stringResource(R.string.the_game_is_over),
             color = MaterialTheme.colorScheme.surface,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
@@ -75,7 +76,7 @@ fun GameOverScreen(killedMonstersCount: Int, gameViewModel: GameViewModel) {
         )
 
         Text(
-            "You killed $killedMonstersCount monsters",
+            stringResource(R.string.you_killed_monsters_count, killedMonstersCount),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.surface,
             modifier = Modifier
@@ -87,7 +88,7 @@ fun GameOverScreen(killedMonstersCount: Int, gameViewModel: GameViewModel) {
             { gameViewModel.restartGame() },
             modifier = Modifier
                 .fillMaxWidth(),
-        ) { Text("Restart game") }
+        ) { Text(stringResource(R.string.restart_game)) }
 
         Spacer(modifier = Modifier.weight(1f))
     }
@@ -101,7 +102,7 @@ fun ScoreBox(killedMonstersCount: Int, isMonsterDead: Boolean) {
             .padding(bottom = 15.dp)
     ) {
         Text(
-            "Killed:",
+            stringResource(R.string.killed_monsters_count),
             color = MaterialTheme.colorScheme.surface,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.padding(end = 5.dp)
@@ -114,7 +115,7 @@ fun ScoreBox(killedMonstersCount: Int, isMonsterDead: Boolean) {
         )
 
         if (isMonsterDead) Text(
-            text = "Monster killed!",
+            text = stringResource(R.string.monster_killed_message),
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.surface,
             modifier = Modifier.padding(start = 10.dp)
@@ -151,7 +152,7 @@ fun LivesBox(livesCount: Int, isHealUpAvailable: Boolean, gameViewModel: GameVie
             modifier = Modifier.padding(start = 10.dp)
         ) {
             Text(
-                "Heal up",
+                stringResource(R.string.heal_up_button),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.surface
             )
@@ -196,7 +197,7 @@ fun Game(viewState: ViewState, gameViewModel: GameViewModel) {
                 .fillMaxWidth()
                 .padding(vertical = 20.dp),
             enabled = !viewState.isAttackPressed,
-        ) { Text("Attack monster") }
+        ) { Text(stringResource(R.string.attack_monster_button)) }
     }
 }
 
@@ -204,21 +205,21 @@ fun Game(viewState: ViewState, gameViewModel: GameViewModel) {
 fun GameMassages(isMonsterNew: Boolean, isMonsterAttacking: Boolean, isHitFailure: Boolean) {
     Column(modifier = Modifier.fillMaxWidth()) {
         if (isMonsterNew) Text(
-            "New Monster!",
+            stringResource(R.string.new_monster_message),
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.surface,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
 
         if (isMonsterAttacking) Text(
-            "Monster attacks!",
+            stringResource(R.string.monster_attacks_message),
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.surface,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
 
         if (isHitFailure) Text(
-            "Miss!",
+            stringResource(R.string.miss_message),
             color = MaterialTheme.colorScheme.surface,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -236,7 +237,7 @@ fun Creature(
 ) {
     Column(modifier = modifier) {
         Text(
-            "Attack: ${creature.attack}",
+            stringResource(R.string.creature_attack) + creature.attack,
             color = MaterialTheme.colorScheme.surface,
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier
@@ -245,7 +246,7 @@ fun Creature(
         )
 
         Text(
-            "Defense: ${creature.defense}",
+            stringResource(R.string.creature_defense) + creature.defense,
             color = MaterialTheme.colorScheme.surface,
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier
@@ -282,7 +283,7 @@ fun HPLine(health: Int, hitValue: Int?) {
             .padding(bottom = 5.dp)
     ) {
         Text(
-            "HP ",
+            stringResource(R.string.creature_hp),
             color = MaterialTheme.colorScheme.surface,
             style = MaterialTheme.typography.bodyLarge,
         )
